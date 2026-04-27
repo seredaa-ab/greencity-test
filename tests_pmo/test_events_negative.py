@@ -31,13 +31,19 @@ class EventsPageNegativeTests(unittest.TestCase):
             self.assertTrue(True, "UI stable even without event detail")
 
 # TC Negative 2
-    def test_registration_invalid_password(self):
+    def test_registration_invalid_passwords(self):
+        invalid_passwords = ["123", "abcdef", "PASSWORD", "12345678"]
+
         self.registration.open_form()
 
-        self.registration.fill_invalid_password("123")
+        for password in invalid_passwords:
+            self.registration.fill_form(
+                "test@gmail.com",
+                "TestUser",
+                password
+            )
 
-        error = self.registration.is_password_error_shown()
-        self.assertTrue(error.is_displayed())
+            self.assertFalse(self.registration.is_submit_enabled())
 
 # TC Negative 3
     def test_logo_redirect_negative(self):

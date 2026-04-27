@@ -23,7 +23,6 @@ class RegistrationPage(BasePage):
             EC.visibility_of_element_located(self.FORM)
         )
 
-    # 🔥 ЦЕ ТЕ ЩО ТИ ВИКЛИКАЄШ У ТЕСТАХ
     def fill_form(self, email, name, password):
         form = self.wait.until(
             EC.visibility_of_element_located(self.FORM)
@@ -39,3 +38,8 @@ class RegistrationPage(BasePage):
             EC.presence_of_element_located(self.SUBMIT_BTN)
         )
         return btn.is_enabled()
+
+    def is_password_error_displayed(self):
+        return self.wait.until(
+            EC.visibility_of_element_located(self.ERROR_LABEL)
+        ).is_displayed()

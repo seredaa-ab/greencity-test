@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from src.pages.base_page import BasePage
-from src.components.event_card import EventCard
-from src.components.header import Header
+from pytest_po.src.pages.base_page import BasePage
+from pytest_po.src.components.event_card import EventCard
+from pytest_po.src.components.header import Header
 
 class EventsPage(BasePage):
 
@@ -12,4 +12,4 @@ class EventsPage(BasePage):
         return [EventCard(self.driver, el) for el in elements]
 
     def get_header(self):
-        return Header(self.driver, self.driver)
+        return Header(self.driver)

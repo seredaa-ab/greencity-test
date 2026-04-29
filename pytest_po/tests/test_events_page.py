@@ -1,5 +1,5 @@
 import allure
-from src.pages.events_page import EventsPage
+from pytest_po.src.pages.events_page import EventsPage
 
 
 @allure.feature("Events Page")

@@ -1,9 +1,12 @@
 from selenium.webdriver.common.by import By
-from src.components.base_component import BaseComponent
+from pytest_po.src.components.base_component import BaseComponent
+from selenium.webdriver.support import expected_conditions as EC
 
 class Header(BaseComponent):
 
     SIGN_UP_BTN = (By.CSS_SELECTOR, ".header_sign-up-btn")
 
     def open_registration(self):
-        self.click(self.SIGN_UP_BTN)
+        self.wait.until(
+            EC.element_to_be_clickable(self.SIGN_UP_BTN)
+        ).click()

@@ -1,9 +1,9 @@
 import unittest
 from selenium import webdriver
 
-from pages.events_page import EventsPage
-from pages.registration_page import RegistrationPage
-from pages.home_page import HomePage
+from tests_pmo.pages import EventsPage
+from tests_pmo.pages.registration_page import RegistrationPage
+from tests_pmo.pages import HomePage
 
 
 class EventsPageNegativeTests(unittest.TestCase):
